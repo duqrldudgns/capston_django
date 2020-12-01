@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>캡스톤디자인 ASAC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="5">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1><B>캡스톤 디자인 </B></h1>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>MAC주소</B></td>
+            <td><B>시간</B></td>
+            <td><B>강의실</B></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for member in Members %}
+            {% for log in Logs %}
+                {% if member.mac_address == log.mac_addr %}
+                <tr>
+                    <td>{{log.mac_addr}}</td>
+                    <td>{{log.time}}</td>
+                    <td>{{log.lecture_room}}</td>
+                </tr>
+                {{ "<!--" }}
+                    {%endif%} 
+                  {%endfor%}     
+                  {{ "-->" }}
+        {% endfor %}
+        <tbody>
+    </table>
+</body>
